@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:5010}
+  port: ${PORT:5005}
 
 eureka:
   client:
@@ -21,6 +21,12 @@ spring:
               args:
                 name: fallbackCommand
                 fallbackUri: forward:/fallback/message
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8083/auth/realms/dev
+          jwk-set-uri: http://localhost:8083/auth/realms/dev/protocol/openid-connect/certs
 
 gateway:
   post:
