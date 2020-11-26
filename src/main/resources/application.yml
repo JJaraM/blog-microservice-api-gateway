@@ -6,6 +6,17 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URI}
 
+keycloak:
+  realm: master
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  resource: login-app # Client Id
+  credentials:
+    secret: 24007302-c88c-412c-9e16-5a5361283c54
+  use-resource-role-mappings: true
+  bearer-only: true
+  enable-basic-auth: true
+
 spring:
   application:
     name: gateway-service
@@ -21,12 +32,7 @@ spring:
               args:
                 name: fallbackCommand
                 fallbackUri: forward:/fallback/message
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8083/auth/realms/dev
-          jwk-set-uri: http://localhost:8083/auth/realms/dev/protocol/openid-connect/certs
+
 
 gateway:
   post:
