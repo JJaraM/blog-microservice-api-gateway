@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:8080}
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    include:
+      - eureka-client-${spring.profiles.active}
+      - log
+      - management
+      - mongo-${spring.profiles.active}
+      - open-api
+      - redis-${spring.profiles.active}
+      - shell-${spring.profiles.active}
+      - swagger-${spring.profiles.active}
+  cloud:
+    services:
+      registrationMethod: route
+    config:
+      enabled: true
+      uri: https://pr-microservice-config-server.herokuapp.com
+      label: master
+      fail-fast: true
+    gateway:
+      routes:
+        - id: tag
+          uri: https://blog-microservice-tag.herokuapp.com
+          predicates:
+            - Path=/tag/**
+        - id: post
+            uri: https://blog-microservice-post.herokuapp.com
+            predicates:
+              - Path=/post/**

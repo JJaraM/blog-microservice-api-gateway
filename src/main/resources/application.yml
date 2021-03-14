@@ -1,43 +1,15 @@
-server:
-  port: ${PORT:5005}
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI}
-
-keycloak:
-  realm: master
-  auth-server-url: http://localhost:8080/auth
-  ssl-required: external
-  resource: login-app # Client Id
-  credentials:
-    secret: 24007302-c88c-412c-9e16-5a5361283c54
-  use-resource-role-mappings: true
-  bearer-only: true
-  enable-basic-auth: true
-
-spring:
-  application:
-    name: gateway-service
-  cloud:
-    gateway:
-      routes:
-        - id: tag
-          uri: http://blog-microservice-tag.herokuapp.com
-          predicates:
-            - Path=/tag/**
-          filters:
-            - name: Hystrix
-              args:
-                name: fallbackCommand
-                fallbackUri: forward:/fallback/message
+#server:
+#  port: ${PORT:5005}
 
 
-gateway:
-  post:
-    uri: https://blog-microservice-post.herokuapp.com
-  tag:
-    uri: http://blog-microservice-tag.herokuapp.com
-  testimonial:
-    uri: https://blog-microservice-post.herokuapp.com
+#keycloak:
+#  realm: master
+#  auth-server-url: http://localhost:8080/auth
+#  ssl-required: external
+#  resource: login-app  Client Id
+#  credentials:
+#    secret: 24007302-c88c-412c-9e16-5a5361283c54
+#  use-resource-role-mappings: true
+#  bearer-only: true
+#  enable-basic-auth: true
+
