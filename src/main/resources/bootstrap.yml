@@ -23,15 +23,13 @@ spring:
       fail-fast: true
     gateway:
       globalcors:
+        add-to-simple-url-handler-mapping: true
         corsConfigurations:
-          '[/**]':
+          '[/post/**]':
             allowedOrigins: "*"
-            allowedMethods:
-              - GET
-              - PUT
-              - DELETE
-              - POST
-                
+            allowedHeaders: "*"
+            allowedMethods: "*"
+
       routes:
         - id: post-ws
           uri: lb://post-ws
