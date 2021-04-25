@@ -27,12 +27,12 @@ spring:
         corsConfigurations:
           '[/**]':
             allowedOrigins:
-            - https://jonathanjaramorales.herokuapp.com,
-            - https://blog-eureka-server.herokuapp.com,
-            - http://jonathanjaramorales.herokuapp.com,
-            - http://blog-eureka-server.herokuapp.com,
-            - http://localhost:3000,
-            - https://blog-microservice-api-gateway.herokuapp.com,
+            - https://jonathanjaramorales.herokuapp.com
+            - https://blog-eureka-server.herokuapp.com
+            - http://jonathanjaramorales.herokuapp.com
+            - http://blog-eureka-server.herokuapp.com
+            - http://localhost:3000
+            - https://blog-microservice-api-gateway.herokuapp.com
             - http://blog-microservice-api-gateway.herokuapp.com
             allowedHeaders: "*"
             allowedMethods:
