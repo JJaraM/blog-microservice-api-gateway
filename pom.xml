@@ -234,7 +234,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>post-microservice</finalName>
+        <finalName>gateway</finalName>
 
         <pluginManagement>
             <plugins>
