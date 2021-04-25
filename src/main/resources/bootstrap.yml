@@ -22,13 +22,13 @@ spring:
       label: master
       fail-fast: true
     gateway:
-      #globalcors:
+      globalcors:
         #add-to-simple-url-handler-mapping: true
-      #  corsConfigurations:
-      #    '[/**]':
-      #      allowedOrigins: "https://jonathanjaramorales.herokuapp.com"
-      #      allowedHeaders: "*"
-      #      allowedMethods: "*"
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "https://jonathanjaramorales.herokuapp.com"
+            allowedHeaders: "*"
+            allowedMethods: "*"
 
       routes:
         - id: post-ws
