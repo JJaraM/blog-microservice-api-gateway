@@ -24,7 +24,7 @@ spring:
     gateway:
       routes:
         - id: post-ws
-          uri: lb://post-ws
+          uri: http://localhost:5000/ #lb://post-ws
           predicates:
             - Path=/post/**
           filters:
