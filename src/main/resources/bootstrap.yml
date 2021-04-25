@@ -1,5 +1,6 @@
 server:
   port: ${PORT:8080}
+
 spring:
   application:
     name: gateway-service
@@ -17,17 +18,23 @@ spring:
     services:
       registrationMethod: route
     config:
-      enabled: true
       uri: https://pr-microservice-config-server.herokuapp.com
       label: master
       fail-fast: true
     gateway:
       routes:
-        - id: tag
-          uri: https://blog-microservice-tag.herokuapp.com
+        - id: post-ws
+          uri: lb://post-ws
           predicates:
-            - Path=/tag/**
-        - id: post
-            uri: https://blog-microservice-post.herokuapp.com
-            predicates:
-              - Path=/post/**
+            - Path=/post/**
+          filters:
+            - name: Retry
+              args:
+                retries: 3
+                statuses: BAD_GATEWAY, SERVICE_UNAVAILABLE
+                methods: GET,POST
+                backoff:
+                  firstBackoff: 10ms
+                  maxBackoff: 50ms
+                  factor: 2
+                  basedOnPreviousValue: false
