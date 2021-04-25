@@ -40,7 +40,22 @@ spring:
             - PUT
             - DELETE
             - POST
-
+          '[/post/**]':
+            allowedOrigins:
+              - https://jonathanjaramorales.herokuapp.com
+              - https://blog-eureka-server.herokuapp.com
+              - http://jonathanjaramorales.herokuapp.com
+              - http://blog-eureka-server.herokuapp.com
+              - http://localhost:3000
+              - https://blog-microservice-api-gateway.herokuapp.com
+              - http://blog-microservice-api-gateway.herokuapp.com
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - PUT
+              - DELETE
+              - POST
+              -
       routes:
         - id: post-ws
           uri: lb://post-ws
