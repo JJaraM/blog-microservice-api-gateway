@@ -23,7 +23,6 @@ spring:
       fail-fast: true
     gateway:
       globalcors:
-        #add-to-simple-url-handler-mapping: true
         corsConfigurations:
           '[/**]':
             allowedOrigins:
@@ -56,3 +55,18 @@ spring:
                   maxBackoff: 50ms
                   factor: 2
                   basedOnPreviousValue: false
+        - id: testominals-ws
+        uri: lb://post-ws
+        predicates:
+          - Path=/testimonial/**
+        filters:
+          - name: Retry
+            args:
+              retries: 3
+              statuses: BAD_GATEWAY, SERVICE_UNAVAILABLE
+              methods: GET,POST
+              backoff:
+                firstBackoff: 10ms
+                maxBackoff: 50ms
+                factor: 2
+                basedOnPreviousValue: false
