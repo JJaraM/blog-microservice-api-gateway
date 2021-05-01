@@ -22,6 +22,9 @@ spring:
       label: master
       fail-fast: true
     gateway:
+      httpclient:
+        connect-timeout: 300000
+        response-timeout: 300s
       globalcors:
         corsConfigurations:
           '[/**]':
