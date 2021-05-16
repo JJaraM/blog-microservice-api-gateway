@@ -61,7 +61,7 @@ spring:
         - id: testominals-ws
           uri: lb://post-ws
           predicates:
-            - Path=/testimonial/**
+            - Path=/v1/testimonial/**
           filters:
             - name: Retry
               args:

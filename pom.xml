@@ -337,7 +337,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.jjara.microservice.post.Application</mainClass>
+                            <mainClass>com.jjara.microservice.ws.post.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
