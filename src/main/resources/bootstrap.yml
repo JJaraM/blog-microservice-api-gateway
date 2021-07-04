@@ -73,3 +73,18 @@ spring:
                   maxBackoff: 50ms
                   factor: 2
                   basedOnPreviousValue: false
+        - id: tag-ws
+            uri: lb://tag-ws
+            predicates:
+              - Path=/tag/**
+            filters:
+              - name: Retry
+                args:
+                  retries: 3
+                  statuses: BAD_GATEWAY, SERVICE_UNAVAILABLE
+                  methods: GET,POST
+                  backoff:
+                    firstBackoff: 10ms
+                    maxBackoff: 50ms
+                    factor: 2
+                    basedOnPreviousValue: false
