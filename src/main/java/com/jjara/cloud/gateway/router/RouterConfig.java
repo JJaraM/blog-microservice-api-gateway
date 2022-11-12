@@ -1,4 +1,4 @@
-package com.jjara.cloud.gateway.router;
+/*package com.jjara.cloud.gateway.router;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -19,3 +19,4 @@ public class RouterConfig {
     }
 
 }
+*/
