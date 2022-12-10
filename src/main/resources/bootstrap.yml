@@ -28,6 +28,7 @@ spring:
           '[/**]':
             allowedOrigins:
               - https://jjara.onrender.com
+              - http://jjara.onrender.com
               - http://localhost:3000
             allowedHeaders: "*"
             allowedMethods:
