@@ -234,7 +234,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>gateway</finalName>
+        <finalName>app</finalName>
 
         <pluginManagement>
             <plugins>
