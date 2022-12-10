@@ -29,6 +29,8 @@ spring:
             allowedOrigins:
               - https://jjara.onrender.com
               - http://jjara.onrender.com
+              - https://prd-gateway-server-hkua.onrender.com
+              - http://prd-gateway-server-hkua.onrender.com
               - http://localhost:3000
             allowedHeaders: "*"
             allowedMethods:
